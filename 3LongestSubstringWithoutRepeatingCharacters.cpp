@@ -1,28 +1,30 @@
 #include <iostream>
 using namespace std;
 #include <string>;
-
+#include <unordered_map>
 
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        unordered_map<char, int> charIndexMap;
-        int maxLength = 0;
+        unordered_map<char,int> charIndex; //unordered hashmap to store each character of string as key and its position as the value
+        
         int start = 0;
+        int maxLength =0;
 
-        for (int end = 0; end < s.length(); ++end) {
-            char currentChar = s[end];
+        for(int end =0; end<s.size() ; ++end) {
 
-            // If the character was seen and is inside the current window
-            if (charIndexMap.count(currentChar) && charIndexMap[currentChar] >= start) {
-                start = charIndexMap[currentChar] + 1; // move start to avoid duplicate
+            char currentchar = s[end];
+
+            if(charIndex.count(currentchar) && charIndex[currentchar] >=start) {
+
+                start = charIndex[currentchar] +1;
             }
 
-            // Update the latest index of the character
-            charIndexMap[currentChar] = end;
+            charIndex[currentchar] = end;
 
-            // Update the maximum length found so far
-            maxLength = max(maxLength, end - start + 1);
+            maxLength = max(maxLength, end - start +1);
+
+            
         }
 
         return maxLength;
