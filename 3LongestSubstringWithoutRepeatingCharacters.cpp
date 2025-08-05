@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#include <string>;
+#include <string>
 #include <unordered_map>
 
 class Solution {
@@ -29,4 +29,23 @@ public:
 
         return maxLength;
     }
+
+   
 };
+
+ int main() {
+        Solution sol;
+
+        int test1 = sol.lengthOfLongestSubstring("helloworld");
+        int test2 = sol.lengthOfLongestSubstring("thisisateststring");
+
+
+        cout<<"TEST 1" << "-" <<test1<<endl;
+        cout<<"TEST 2" << "-"<< test2<<endl;
+
+
+         
+    cout << sol.lengthOfLongestSubstring("helloworld") << endl;  // Expected: 5 ("world")
+    cout << sol.lengthOfLongestSubstring("abcabcbb") << endl;    // Expected: 3 ("abc")
+    cout << sol.lengthOfLongestSubstring(" ") << endl; 
+    }
